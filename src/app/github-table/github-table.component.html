@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutAlign="center">
+  <div ayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row">
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label> Search</mat-label>
+      <input [formControl]="searchedUserForm" matInput placeholder="Placeholder">
+      <mat-icon matSuffix></mat-icon>
+      <mat-hint>Taper un userName...</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="users" fxLayout="row wrap" fxLayoutAlign="center">
+    <ng-container *ngIf=" filteredUserName$| async as filteredUserName ">
+      <div class="user" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" *ngFor="let item of filteredUserName.items">
+        <div class="user-content mat-elevation-z2" fxLayout="column" fxFlex="1 1 auto">
+          <!-- HEADER -->
+          <div class="header" fxLayout="row" fxLayoutAlign="center center">
+            <div class="category" fxFlex>
+              {{item?.login}}
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <!-- Content -->
+          <div class="content" fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
+            <div style="height:50px;width: 50px " fxFlex="30">
+              <img style="width: 100%;height: 100%;" [src]="item?.avatar_url">
+            </div>
+            <div style="margin-left: 10px" fxFlex="70" fxLayout="column">
+              <div>Score: {{item.score}}</div>
+              <div>type: {{item.type}}</div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+
+</div>

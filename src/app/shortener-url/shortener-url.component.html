@@ -1,0 +1,27 @@
+<div style="margin-top: 100px">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field appearance="outline" floatLabel="always" fxFlex>
+      <mat-label> Url</mat-label>
+      <input [formControl]="Url" matInput placeholder="Entrer Url">
+      <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+    <div fxLayout="column">
+      <button fxFlex style="height: 49px;" mat-raised-button color="primary" style="margin-left: 10px">Shortener url
+      </button>
+    </div>
+  </div>
+</div>
+<div style="margin-top: 100px">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field appearance="outline" floatLabel="always" fxFlex>
+      <mat-label> Url</mat-label>
+      <input [formControl]="Url" matInput placeholder="Entrer Url" #userinput>
+      <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+    <div fxLayout="column">
+      <button (click)="copyInputMessage(userinput)" fxFlex style="height: 49px;" mat-raised-button color="primary"
+        style="margin-left: 10px"> Copier url
+      </button>
+    </div>
+  </div>
+</div>
